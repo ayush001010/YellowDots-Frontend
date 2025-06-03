@@ -3,13 +3,12 @@ import about_image1 from '../assets/images/about_img_1.jpg';
 import about_image2 from '../assets/images/about_img_2.jpg';
 import about_image3 from '../assets/images/about_img_3.jpg';
 import about_image4 from '../assets/images/about_img_4.jpg';
-import { Phone, Mail, Instagram } from 'lucide-react';
 
 const About = () => {
   return (
     <div className="bg-black text-white">
       {/* -------Intro Paragraph------- */}
-      <div className="mx-4 sm:mx-[10%] mt-20 mb-10">
+      <div className="mx-4 sm:mx-[10%] pt-20 pb-10">
         <p className="text-lg font-light leading-normal">
           Hi, <br /><br />
           I am Ashvery, a graduate of IIT Dhanbad with a degree in Mechanical Engineering, and my journey has been anything but linear. While my academic path was rooted in engineering, the real value of my college years came from the communities I built, the ideas I explored, and the people I met — many of whom are now building companies and shaping industries. <br /><br />

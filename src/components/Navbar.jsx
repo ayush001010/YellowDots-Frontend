@@ -9,32 +9,32 @@ const Navbar = () => {
   const [token, setToken] = useState(true)
 
   return (
-  <div className='sticky top-0 z-50 flex items-center justify-between text-sm py-4 px-5 bg-primary border-b border-b-gray-400'> 
+<div className='fixed top-0 z-50 w-full flex items-center justify-between text-sm py-3 px-5 backdrop-blur-md shadow-md'>
       <img onClick={()=>navigate('/')} className='w-20 cursor-pointer' src={logo} alt="" />
-      <ul className='hidden md:flex item-start gap-5 font-medium text-lg'>
+      <ul className='hidden md:flex item-start gap-5 font-medium text-lg text-white'>
         <NavLink to='/'>
                 <li className='py-1'>
                     HOME
                 </li>
-                <hr className='border-none outline-none h-0.5 bg-black w-3/5 m-auto hidden'/>
+                <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden'/>
             </NavLink>
             <NavLink to='/work'>
                 <li className='py-1'>
                     WORKS
                 </li>
-                <hr className='border-none outline-none h-0.5 bg-black w-3/5 m-auto hidden'/>
+                <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden'/>
             </NavLink>
             <NavLink to='/about'>
                 <li className='py-1'>
                     ABOUT
                 </li>
-                <hr className='border-none outline-none h-0.5 bg-black w-3/5 m-auto hidden'/>
+                <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden'/>
             </NavLink>
             <NavLink to='/contact'>
                 <li className='py-1'>
                     CONTACT
                 </li>
-                <hr className='border-none outline-none h-0.5 bg-black w-3/5 m-auto hidden'/>
+                <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden'/>
             </NavLink>
       </ul>
 
