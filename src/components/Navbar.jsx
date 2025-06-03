@@ -40,12 +40,12 @@ const Navbar = () => {
 
       {/* ----------- MOBILE MENU ICON ----------- */}
       <div className='w-full flex items-center justify-end md:hidden'>
-        {!showMenu && <FiMenu className='w-6 h-6 cursor-pointer' onClick={() => setShowMenu(true)} />}
+        {!showMenu && <FiMenu className='w-6 h-6 cursor-pointer text-primary ' onClick={() => setShowMenu(true)} />}
       </div>
 
 
       {/*-----------MOBILE_MENU-----------*/}
-      <div className={` ${showMenu ? 'fixed w-full' : 'h-0 w-0'} md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-primary text-primary transition-all`}>
+      <div className={`fixed inset-0 z-40 bg-primary h-screen text-black transition-transform duration-300 transform ${showMenu ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
         <div className='flex items-center justify-between px-5 py-6'>
           {/* <img className='w-36' src={logo} alt="" /> */}
           <div></div>
