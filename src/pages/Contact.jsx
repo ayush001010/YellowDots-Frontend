@@ -12,6 +12,7 @@ const Contact = () => {
             src={qrcode}
             alt="QR Code"
             className="
+              mt-4
               w-48 h-48
               md:w-[40vh] md:h-[40vh]
               object-contain
