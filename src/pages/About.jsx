@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import about_image1 from '../assets/images/about_img_1.jpg';
 import about_image2 from '../assets/images/about_img_2.jpg';
 import about_image3 from '../assets/images/about_img_3.jpg';
 import about_image4 from '../assets/images/about_img_4.jpg';
+import Loader from '../components/loader';
 
 const About = () => {
+
+  // Simulate loading state
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500); // 1.5s fake delay
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loader />;
+
   return (
     <div className="bg-black text-white">
       {/* -------Intro Paragraph------- */}

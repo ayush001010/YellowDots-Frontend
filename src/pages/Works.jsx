@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import baharImg from '../assets/images/bahar.jpg';
 import studioRiguLogo from '../assets/images/studio_rigu_logo.png';
 import vrindaImg from '../assets/images/vrinda.jpg';
 import rheaImg from '../assets/images/rhea.jpg';
 import nonames from '../assets/images/nonames.jpg';
+import Loader from '../components/loader';
+
 
 const Works = () => {
+
+  // Simulate loading state
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500); // 1.5s fake delay
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loader />;
+
   const renderGrid = (count = 5) => (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
       {Array.from({ length: count }).map((_, index) => (

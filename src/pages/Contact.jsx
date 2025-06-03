@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaInstagram, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 import qrcode from '../assets/images/qrcode.png'; // Adjust path if needed
+import Loader from '../components/loader';
 
 const Contact = () => {
+
+  // Simulate loading state
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500); // 1.5s fake delay
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loader />;
+
   return (
     <div className="bg-black text-white w-full h-[90vh] p-4 md:p-8 overflow-hidden flex flex-col justify-between">
 
@@ -12,7 +24,7 @@ const Contact = () => {
             src={qrcode}
             alt="QR Code"
             className="
-              mt-4
+              mt-4 md:mt-5
               w-48 h-48
               md:w-[40vh] md:h-[40vh]
               object-contain
