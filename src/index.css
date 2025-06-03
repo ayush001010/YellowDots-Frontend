@@ -4,9 +4,8 @@
 @tailwind utilities;
 
 *{
-    /* font-family: Outfit;
-    overflow: hidden;
-    scrollbar-width: none; */
+    font-family: Outfit;
+    scrollbar-width: none;
     
 }
 

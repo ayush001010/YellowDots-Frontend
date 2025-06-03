@@ -11,10 +11,10 @@ const Navbar = () => {
   return (
 <div className='fixed top-0 z-50 w-full flex items-center justify-between text-sm py-3 px-5 backdrop-blur-md shadow-md'>
       <img onClick={()=>navigate('/')} className='w-20 cursor-pointer' src={logo} alt="" />
-      <ul className='hidden md:flex item-start gap-5 font-medium text-lg text-white'>
-        <NavLink to='/'>
+      <ul className='hidden md:flex item-start gap-8 font-medium text-lg text-primary'>
+            <NavLink to='/about'>
                 <li className='py-1'>
-                    HOME
+                    I
                 </li>
                 <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden'/>
             </NavLink>
@@ -24,15 +24,9 @@ const Navbar = () => {
                 </li>
                 <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden'/>
             </NavLink>
-            <NavLink to='/about'>
-                <li className='py-1'>
-                    ABOUT
-                </li>
-                <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden'/>
-            </NavLink>
             <NavLink to='/contact'>
                 <li className='py-1'>
-                    CONTACT
+                    HERE
                 </li>
                 <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden'/>
             </NavLink>
@@ -53,13 +47,8 @@ const Navbar = () => {
         </div>
         <ul className='flex flex-col items-center gap-2 px-5 text-lg font-medium'>
           <div onClick={() => setShowMenu(false)}>
-            <NavLink to='/'>
-              <p className='px-4 py-2 rounded inline-block'>HOME</p>
-            </NavLink>
-          </div>
-          <div onClick={() => setShowMenu(false)}>
             <NavLink to='/about'>
-              <p className='px-4 py-2 rounded inline-block'>ABOUT</p>
+              <p className='px-4 py-2 rounded inline-block'>I</p>
             </NavLink>
           </div>
           <div onClick={() => setShowMenu(false)}>
@@ -69,7 +58,7 @@ const Navbar = () => {
           </div>
           <div onClick={() => setShowMenu(false)}>
             <NavLink to='/contact'>
-              <p className='px-4 py-2 rounded inline-block'>CONTACT</p>
+              <p className='px-4 py-2 rounded inline-block'>HERE</p>
             </NavLink>
           </div>
         </ul>
