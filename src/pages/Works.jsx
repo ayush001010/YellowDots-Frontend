@@ -62,7 +62,7 @@ const Works = () => {
             ))}
           </div>
           <div className="text-center md:text-left md:w-1/3">
-            <img src={studioRiguLogo} alt="Studio Rigu Logo" className="w-[30vh] aspect-square object-cover rounded-full shadow-md" />
+            <img src={studioRiguLogo} alt="Studio Rigu Logo" className="w-[30vh] aspect-square object-center rounded-full shadow-md" />
             <p className="mt-4 text-base font-normal leading-normal">
               <strong>Studio Rigu</strong> is a contemporary Indian fashion label founded by Riya Gupta in 2018. Known for its blend of comfort and elegance, the brand focuses on empowering women through bold, modern silhouettes. It combines masculine fabrics with feminine styles and emphasizes sustainability using eco-friendly materials like Cupro and organic cotton. Studio Rigu offers dresses, co-ords, kaftans, and more, featuring vibrant prints and a globally inspired aesthetic.
             </p>
