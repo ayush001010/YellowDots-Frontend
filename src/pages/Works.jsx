@@ -41,7 +41,7 @@ const Works = () => {
       {/* Section 1 */}
       <div className="px-4 sm:px-[10%] pt-20 pb-10">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-          <img src={baharImg} alt="Bahar Dhawan Rohtagi" className="w-[30vh] aspect-square object-cover rounded-full shadow-md sm:w-[25vh] xs:w-[20vh]" />
+          <img src={baharImg} alt="Bahar Dhawan Rohtagi" className="mt-5 w-[30vh] aspect-square object-cover rounded-full shadow-md sm:w-[25vh] xs:w-[20vh]" />
           <p className="text-base font-normal leading-normal py-3">
             <strong>Bahar Dhawan Rohtagi</strong> is a distinguished Indian contemporary artist renowned for her innovative mixed-media creations that seamlessly blend her legal background with her artistic pursuits. Initially practicing law for five years, Bahaar transitioned to art, becoming a self-taught artist whose works are deeply influenced by cosmic themes, dreams, and societal narratives. Her art employs diverse materials such as resin, rubber, cement, and sand, resulting in textured pieces that explore themes like feminism, ecology, and the cosmos. Bahaar's unique approach has garnered international recognition, including the prestigious SAARC Award for Best Emerging Artist in 2017. <br /><br />
             Beyond her artistic endeavors, Bahaar is also celebrated as an influencer and advocate for sustainability in art. Her journey from law to art exemplifies a fusion of discipline and creativity, making her a prominent figure in India's contemporary art scene.
