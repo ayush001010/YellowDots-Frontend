@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import video from '../assets/videos/home.mp4';
 import { useNavigate } from 'react-router-dom';
-import Loader from '../components/loader';
+import Loader from '../components/Loader';
 
 const Home = () => {
 

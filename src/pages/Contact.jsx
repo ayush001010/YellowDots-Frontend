@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaInstagram, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 import qrcode from '../assets/images/qrcode.png'; // Adjust path if needed
-import Loader from '../components/loader';
+import Loader from '../components/Loader';
 
 const Contact = () => {
 

@@ -3,7 +3,7 @@ import about_image1 from '../assets/images/about_img_1.jpg';
 import about_image2 from '../assets/images/about_img_2.jpg';
 import about_image3 from '../assets/images/about_img_3.jpg';
 import about_image4 from '../assets/images/about_img_4.jpg';
-import Loader from '../components/loader';
+import Loader from '../components/Loader';
 
 const About = () => {
 

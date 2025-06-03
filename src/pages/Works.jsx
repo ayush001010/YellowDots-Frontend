@@ -4,7 +4,7 @@ import studioRiguLogo from '../assets/images/studio_rigu_logo.png';
 import vrindaImg from '../assets/images/vrinda.jpg';
 import rheaImg from '../assets/images/rhea.jpg';
 import nonames from '../assets/images/nonames.jpg';
-import Loader from '../components/loader';
+import Loader from '../components/Loader';
 
 
 const Works = () => {
