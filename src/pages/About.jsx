@@ -24,19 +24,19 @@ const About = () => {
           <img
             src={about_image1}
             alt="IIT Dhanbad Banner"
-            className="w-full h-auto object-cover rounded-lg shadow-md"
+            className="w-full h-[47.78vh] object-cover rounded-lg shadow-md"
           />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <img
             src={about_image2}
             alt="Formula Bharat Workshop"
-            className="w-full h-[65vh] object-cover rounded-lg shadow-md"
+            className="w-full h-[46.56vh] object-cover rounded-lg shadow-md"
           />
           <img
             src={about_image3}
             alt="Formula Car Team"
-            className="w-full object-cover rounded-lg shadow-md"
+            className="w-full h-[46.56vh] object-cover rounded-lg shadow-md"
           />
         </div>
       </div>
@@ -58,7 +58,7 @@ const About = () => {
         <img
           src={about_image4}
           alt="Ashvery editing video"
-          className="w-full h-auto object-cover rounded-lg shadow-md"
+          className="w-full h-[52.89vh] object-cover rounded-lg shadow-md"
         />
       </div>
 
