@@ -75,7 +75,7 @@ const About = () => {
 
       {/* -------Footer Quote Section------- */}
       <div className="bg-primary text-black py-16 px-4 sm:px-[10%] text-center">
-        <p className="text-base font-normal leading-normal">
+        <p className="text-xl w font-normal leading-normal">
           At RCE Media, every frame is a decision, every cut is a commitment, and every story is crafted to be remembered.
         </p>
       </div>
