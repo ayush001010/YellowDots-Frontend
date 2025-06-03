@@ -56,16 +56,16 @@ const Works = () => {
       {/* Section 2 */}
       <div className="flex justify-center items-center bg-primary text-black py-12 px-4 sm:px-[10%]">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 w-full">
+          <div className="md:w-1/3 text-center md:text-left">
+            <img src={studioRiguLogo} alt="No Names Logo" className="w-[35vh] aspect-square object-center rounded-full shadow-md" />
+            <p className="mt-4 text-base font-normal leading-normal">
+              <strong>Studio Rigu</strong>  is a contemporary Indian fashion label founded by Riya Gupta in 2018. Known for its blend of comfort and elegance, the brand focuses on empowering women through bold, modern silhouettes. It combines masculine fabrics with feminine styles and emphasizes sustainability using eco-friendly materials like Cupro and organic cotton. Studio Rigu offers dresses, co-ords, kaftans, and more, featuring vibrant prints and a globally inspired aesthetic.
+            </p>
+          </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full md:w-2/3">
             {Array.from({ length: 3 }).map((_, index) => (
               <div key={index} className="bg-yellow-400 aspect-[3/5] w-full rounded-lg"></div>
             ))}
-          </div>
-          <div className="text-center md:text-left md:w-1/3">
-            <img src={studioRiguLogo} alt="Studio Rigu Logo" className="w-[30vh] aspect-square object-center rounded-full shadow-md" />
-            <p className="mt-4 text-base font-normal leading-normal">
-              <strong>Studio Rigu</strong> is a contemporary Indian fashion label founded by Riya Gupta in 2018. Known for its blend of comfort and elegance, the brand focuses on empowering women through bold, modern silhouettes. It combines masculine fabrics with feminine styles and emphasizes sustainability using eco-friendly materials like Cupro and organic cotton. Studio Rigu offers dresses, co-ords, kaftans, and more, featuring vibrant prints and a globally inspired aesthetic.
-            </p>
           </div>
         </div>
       </div>
