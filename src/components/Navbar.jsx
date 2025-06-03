@@ -45,7 +45,7 @@ const Navbar = () => {
 
 
       {/*-----------MOBILE_MENU-----------*/}
-      <div className={` ${showMenu ? 'fixed w-full' : 'h-0 w-0'} md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-primary text-black transition-all`}>
+      <div className={` ${showMenu ? 'fixed w-full' : 'h-0 w-0'} md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-primary text-primary transition-all`}>
         <div className='flex items-center justify-between px-5 py-6'>
           {/* <img className='w-36' src={logo} alt="" /> */}
           <div></div>
