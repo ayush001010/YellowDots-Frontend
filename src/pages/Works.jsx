@@ -89,7 +89,7 @@ const Works = () => {
 
   return (
     <div className="bg-black text-white">
-      <div className="px-4 sm:px-[15%] pt-20 pb-10 border-b border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+      <div className="px-4 sm:px-[15%] pt-20 pb-10">
         <Section
           img={baharImg}
           alt="Bahar Dhawan Rohtagi"
@@ -112,7 +112,7 @@ const Works = () => {
         </div>
       </div>
 
-      <div className="px-4 sm:px-[15%] py-12 border-b border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+      <div className="px-4 sm:px-[15%] pt-20 pb-10">
         <Section
           img={vrindaImg}
           alt="Vrinda Suri"
@@ -121,7 +121,7 @@ const Works = () => {
         <ScrollableVideoRow videoIds={youtubeShortsVrinda} />
       </div>
 
-      <div className="px-4 sm:px-[15%] pb-20 border-b border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+      <div className="px-4 sm:px-[15%] pt-20 pb-10">
         <Section
           img={rheaImg}
           alt="Rhea Kapahi"
