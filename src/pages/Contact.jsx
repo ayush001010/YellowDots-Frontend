@@ -26,7 +26,7 @@ const Contact = () => {
             className="
               mt-10 
               w-48 h-48
-              md:w-[40vh] md:h-[40vh]
+              md:w-[30vh] md:h-[30vh]
               object-contain
               transition-transform duration-300
               group-hover:scale-105
@@ -37,21 +37,21 @@ const Contact = () => {
         </div>
 
       {/* Bottom Row - Contact Info */}
-      <div className="flex justify-end items-end text-right space-y-6 text-lg md:text-2xl font-light flex-col">
+      <div className="flex justify-end items-end text-right space-y-6 md:text-2xl font-light flex-col">
         {/* Phone */}
-        <div className="flex items-center justify-end gap-4 group hover:scale-105 transition-all duration-300">
+        <div className="flex items-center justify-end gap-4 group text-xl hover:scale-105 transition-all duration-300">
           <FaPhoneAlt className="text-yellow-400 group-hover:text-yellow-300" />
           <span className="group-hover:text-yellow-300 cursor-pointer">+91 6377480099</span>
         </div>
 
         {/* Email */}
-        <div className="flex items-center justify-end gap-4 group hover:scale-105 transition-all duration-300">
+        <div className="flex items-center justify-end gap-4 group text-xl hover:scale-105 transition-all duration-300">
           <FaEnvelope className="text-yellow-400 group-hover:text-yellow-300" />
           <span className="group-hover:text-yellow-300 cursor-pointer">Rollcameraedit@gmail.com</span>
         </div>
 
         {/* Instagram */}
-        <div className="flex items-center justify-end gap-4 group hover:scale-105 transition-all duration-300">
+        <div className="flex items-center justify-end gap-4 group text-xl hover:scale-105 transition-all duration-300">
           <FaInstagram className="text-yellow-400 group-hover:text-yellow-300" />
           <span className="group-hover:text-yellow-300 cursor-pointer">@Rollcameraedit</span>
         </div>
