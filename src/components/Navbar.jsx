@@ -9,7 +9,7 @@ const Navbar = () => {
   const [token, setToken] = useState(true)
 
   return (
-<div className='fixed top-0 z-50 w-full flex items-center justify-between text-sm py-3 px-5 backdrop-blur-sm shadow-md'>
+<div className='fixed top-0 z-50 w-full h-[7vh] flex items-center justify-between text-sm py-4 px-5 backdrop-blur-sm shadow-md'>
       <img onClick={()=>navigate('/')} className='w-20 cursor-pointer' src={logo} alt="" />
       <ul className='hidden md:flex item-start gap-8 font-medium text-lg text-primary'>
             <NavLink to='/about'>
