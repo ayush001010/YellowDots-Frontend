@@ -7,11 +7,11 @@ import nonames from '../assets/images/nonames.jpg';
 import Loader from '../components/Loader';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const youtubeShortsBahar = ['zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I'];
-const youtubeShortsStudioRigu = ['FZXiWHJtzQo', 'Bco2USB48uY', '7kRYi1LKQDU'];
-const youtubeShortsVrinda = ['zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I'];
-const youtubeShortsRhea = ['zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I'];
-const youtubeShortsNoNames = ['FZXiWHJtzQo', 'Bco2USB48uY', '7kRYi1LKQDU'];
+const youtubeShortsBahar = ['zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I','zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I'];
+const youtubeShortsStudioRigu =  ['FZXiWHJtzQo', 'Bco2USB48uY', '7kRYi1LKQDU', 'FZXiWHJtzQo', 'Bco2USB48uY', '7kRYi1LKQDU'];
+const youtubeShortsVrinda = ['zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I','zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I'];
+const youtubeShortsRhea = ['zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I','zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I'];
+const youtubeShortsNoNames = ['FZXiWHJtzQo', 'Bco2USB48uY', '7kRYi1LKQDU', 'FZXiWHJtzQo', 'Bco2USB48uY', '7kRYi1LKQDU'];
 
 const VideoThumbnailPlayer = ({ videoId }) => {
   const [isHovered, setIsHovered] = useState(false);
