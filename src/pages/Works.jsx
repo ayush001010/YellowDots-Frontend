@@ -67,7 +67,7 @@ const ScrollableVideoRow = ({ videoIds }) => {
       </button>
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto gap-5 no-scrollbar scroll-smooth scroll-pl-4 snap-x snap-mandatory backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-lg p-5"
+        className="flex overflow-x-auto gap-5 no-scrollbar scroll-smooth scroll-pl-4 snap-x snap-mandatory rounded-2xl p-5"
       >
         {videoIds.map((id, index) => <VideoThumbnailPlayer key={index} videoId={id} />)}
       </div>
