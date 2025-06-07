@@ -9,6 +9,11 @@
     
 }
 
+body {
+  cursor: none;
+}
+
+
 .active hr{
     display: block;
 }
