@@ -39,7 +39,7 @@ const Works = () => {
   return (
     <div className="bg-black text-white">
       {/* Section 1 */}
-      <div className="px-4 sm:px-[10%] pt-20 pb-10">
+      <div className="px-4 sm:px-[15%] pt-20 pb-10">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
           <img src={baharImg} alt="Bahar Dhawan Rohtagi" className="mt-5 w-[30vh] aspect-square object-cover rounded-full shadow-md sm:w-[25vh] xs:w-[20vh]" />
           <p className="text-base font-normal leading-normal py-3">
@@ -49,12 +49,12 @@ const Works = () => {
         </div>
       </div>
 
-      <div className="px-4 sm:px-[10%] pb-10">
+      <div className="px-4 sm:px-[15%] pb-10">
         {renderGrid(5)}
       </div>
 
       {/* Section 2 */}
-      <div className="flex justify-center items-center bg-primary text-black py-12 px-4 sm:px-[10%]">
+      <div className="flex justify-center items-center bg-primary text-black py-12 px-4 sm:px-[15%]">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 w-full">
           <div className="md:w-1/3 text-center md:text-left">
             <img src={studioRiguLogo} alt="No Names Logo" className="w-[35vh] aspect-square object-center rounded-full shadow-md" />
@@ -71,7 +71,7 @@ const Works = () => {
       </div>
 
       {/* Section 3 */}
-      <div className="px-4 sm:px-[10%] py-12">
+      <div className="px-4 sm:px-[15%] py-12">
         <Section
           img={vrindaImg}
           alt="Vrinda Suri"
@@ -83,7 +83,7 @@ const Works = () => {
       </div>
 
       {/* Section 4 */}
-      <div className="px-4 sm:px-[10%] pb-20">
+      <div className="px-4 sm:px-[15%] pb-20">
         <Section
           img={rheaImg}
           alt="Rhea Kapahi"
@@ -96,7 +96,7 @@ const Works = () => {
       </div>
 
       {/* Section 5 */}
-      <div className="flex justify-center items-center bg-primary text-black py-12 px-4 sm:px-[10%]">
+      <div className="flex justify-center items-center bg-primary text-black py-12 px-4 sm:px-[15%]">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 w-full">
           <div className="md:w-1/3 text-center md:text-left">
             <img src={nonames} alt="No Names Logo" className="w-[35vh] aspect-square object-cover rounded-full shadow-md" />
@@ -113,7 +113,7 @@ const Works = () => {
       </div>
 
       {/* Section 6 */}
-      <div className="px-4 sm:px-[10%] py-12">
+      <div className="px-4 sm:px-[15%] py-12">
         <Section
           img={vrindaImg}
           alt="Vrinda Suri"
@@ -125,7 +125,7 @@ const Works = () => {
       </div>
 
       {/* Section 7 */}
-      <div className="px-4 sm:px-[10%] pb-20">
+      <div className="px-4 sm:px-[15%] pb-20">
         <Section
           img={rheaImg}
           alt="Rhea Kapahi"
@@ -138,11 +138,11 @@ const Works = () => {
       </div>
 
       {/* Footer Quote */}
-      <div className="bg-primary text-black py-16 px-4 sm:px-[10%] text-center">
+      {/* <div className="bg-primary text-black py-16 px-4 sm:px-[15%] text-center">
         <p className="text-xl font-normal leading-normal">
           At RCE Media, every frame is a decision, every cut is a commitment, and every story is crafted to be remembered.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -20,7 +20,7 @@ const About = () => {
   return (
     <div className="bg-black text-white">
       {/* -------Intro Paragraph------- */}
-      <div className="mx-4 sm:mx-[10%] pt-20 pb-10">
+      <div className="mx-4 sm:mx-[15%] pt-20 pb-10">
         <p className="text-lg font-light leading-normal">
           Hi, <br /><br />
           I am Ashvery, a graduate of IIT Dhanbad with a degree in Mechanical Engineering, and my journey has been anything but linear. While my academic path was rooted in engineering, the real value of my college years came from the communities I built, the ideas I explored, and the people I met — many of whom are now building companies and shaping industries. <br /><br />
@@ -31,7 +31,7 @@ const About = () => {
       </div>
 
       {/* -------Image Row 1------- */}
-      <div className="mx-4 sm:mx-[10%] mb-10 flex flex-col gap-4">
+      <div className="mx-4 sm:mx-[15%] mb-10 flex flex-col gap-4">
         <div className="w-full">
           <img
             src={about_image1}
@@ -54,7 +54,7 @@ const About = () => {
       </div>
 
       {/* -------Story Continued Section------- */}
-      <div className="mx-4 sm:mx-[10%] mb-10">
+      <div className="mx-4 sm:mx-[15%] mb-10">
         <p className="text-lg font-light leading-normal">
           That’s when I realized: I wasn’t just drawn to how things worked — I was drawn to how stories moved people. <br /><br />
           And so began the shift. <br />
@@ -66,7 +66,7 @@ const About = () => {
       </div>
 
       {/* -------Image Row 2------- */}
-      <div className="mx-4 sm:mx-[10%] mb-10">
+      <div className="mx-4 sm:mx-[15%] mb-10">
         <img
           src={about_image4}
           alt="Ashvery editing video"
@@ -75,7 +75,7 @@ const About = () => {
       </div>
 
       {/* -------Conclusion Paragraph------- */}
-      <div className="mx-4 sm:mx-[10%] mb-20">
+      <div className="mx-4 sm:mx-[15%] mb-20">
         <p className="text-lg font-light leading-normal">
           My work has led me to collaborate with some of the fashion industry’s most celebrated names — from Nikki Mehra and Bahar Dhawan Rustogi to Nisha Gandhi, Rehea Kapahi, Vrinda Suri, and more — crafting visual narratives that elevate personal brands and campaigns alike. <br /><br />
           At the heart of everything I do lies one goal: <br />
