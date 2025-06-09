@@ -5,18 +5,23 @@ const CustomCursor = () => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const isMobile = window.innerWidth <= 768;
-    if (isMobile) {
-      setVisible(false);
-      return;
-    }
+    const updateCursorVisibility = () => {
+      setVisible(window.innerWidth > 768);
+    };
 
-    const move = (e) => {
+    updateCursorVisibility(); // Initial check
+
+    const handleMouseMove = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
+    window.addEventListener("resize", updateCursorVisibility);
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("resize", updateCursorVisibility);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   if (!visible) return null;
