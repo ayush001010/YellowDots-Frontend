@@ -28,11 +28,16 @@ const VideoThumbnailPlayer = ({ videoId }) => {
     if (!isTouch) setIsHovered(false);
   };
 
+  const handleClick = () => {
+    if (isTouch) setIsHovered((prev) => !prev); // 👈 Tap to toggle on mobile
+  };
+
   return (
     <div
       className="w-[22vh] sm:w-[24vh] md:w-[26vh] lg:w-[28vh] max-w-[260px] aspect-[9/16] bg-black rounded-xl shadow-lg snap-start overflow-hidden relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick} // 👈 Only this added
     >
       {isHovered ? (
         <iframe
