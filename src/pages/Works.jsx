@@ -1,149 +1,190 @@
-import React, { useEffect, useState, useRef } from 'react';
-import baharImg from '../assets/images/bahar.jpg';
-import studioRiguLogo from '../assets/images/studio_rigu_logo.png';
-import vrindaImg from '../assets/images/vrinda.jpg';
-import rheaImg from '../assets/images/rhea.jpg';
-import nonames from '../assets/images/nonames.jpg';
-import Loader from '../components/Loader';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useEffect, useState, useRef } from "react";
+import api from "../api/axios";
+import Loader from "../components/Loader";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const youtubeShortsBahar = ['zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I','zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I'];
-const youtubeShortsStudioRigu =  ['FZXiWHJtzQo', 'Bco2USB48uY', '7kRYi1LKQDU', 'FZXiWHJtzQo', 'Bco2USB48uY', '7kRYi1LKQDU'];
-const youtubeShortsVrinda = ['zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I','zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I'];
-const youtubeShortsRhea = ['zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I','zPLiaQ-C-V8', 'wnYtfYzAqwA', '-RFGMum_V3s', 's_r3bw-jc5A', 'hkagi4pL83I'];
-const youtubeShortsNoNames = ['FZXiWHJtzQo', 'Bco2USB48uY', '7kRYi1LKQDU', 'FZXiWHJtzQo', 'Bco2USB48uY', '7kRYi1LKQDU'];
+// Utility to detect touch devices
+const isTouchDevice = () =>
+  typeof window !== "undefined" &&
+  ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
 const VideoThumbnailPlayer = ({ videoId }) => {
+  const iframeRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
-  const iframeSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1`;
-  const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  const [isTouch, setIsTouch] = useState(false);
 
-  return (
-    <div
-      className="min-w-[200px] sm:min-w-[220px] aspect-[9/16] bg-black rounded-xl shadow-lg snap-start overflow-hidden relative cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onTouchStart={() => setIsHovered(true)}
-      onTouchEnd={() => setIsHovered(false)}
-    >
-      <div className="absolute top-0 left-0 w-full h-full">
-        {!isHovered ? (
-          <img src={thumbnail} alt="Video thumbnail" className="w-full h-full object-cover" draggable={false} loading="lazy" />
-        ) : (
-          <iframe
-            className="w-full h-full"
-            src={iframeSrc}
-            frameBorder="0"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            title="YouTube Video"
-          ></iframe>
-        )}
-      </div>
-    </div>
-  );
-};
+  useEffect(() => {
+    setIsTouch(
+      typeof window !== "undefined" &&
+        ("ontouchstart" in window || navigator.maxTouchPoints > 0)
+    );
+  }, []);
 
-const Section = ({ img, alt, text, reverse = false }) => (
-  <div className={`flex flex-col md:flex-row ${reverse ? 'md:flex-row-reverse' : ''} items-center md:items-start gap-6 py-12`}>
-    <img src={img} alt={alt} className="w-[30vh] aspect-square object-cover rounded-full shadow-md" />
-    <p className="text-base font-normal leading-normal py-3" dangerouslySetInnerHTML={{ __html: text }} />
-  </div>
-);
+  const handleMouseEnter = () => {
+    if (!isTouch) setIsHovered(true);
+  };
 
-const ScrollableVideoRow = ({ videoIds }) => {
-  const scrollRef = useRef(null);
-  const scrollBy = 260;
-
-  const scroll = (dir) => {
-    if (!scrollRef.current) return;
-    scrollRef.current.scrollBy({ left: dir * scrollBy, behavior: 'smooth' });
+  const handleMouseLeave = () => {
+    if (!isTouch) setIsHovered(false);
   };
 
   return (
-    <div className="relative px-6 py-6">
-      <button onClick={() => scroll(-1)} className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2">
-        <ChevronLeft />
-      </button>
-      <div
-        ref={scrollRef}
-        className="flex overflow-x-auto gap-5 no-scrollbar scroll-smooth scroll-pl-4 snap-x snap-mandatory rounded-2xl p-5"
-      >
-        {videoIds.map((id, index) => <VideoThumbnailPlayer key={index} videoId={id} />)}
+    <div
+      className="w-[22vh] sm:w-[24vh] md:w-[26vh] lg:w-[28vh] max-w-[260px] aspect-[9/16] bg-black rounded-xl shadow-lg snap-start overflow-hidden relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {isHovered ? (
+        <iframe
+          ref={iframeRef}
+          className="w-full h-full"
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&loop=1&playlist=${videoId}`}
+          frameBorder="0"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+          title="YouTube Video"
+        />
+      ) : (
+        <img
+          src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+          alt="Video thumbnail"
+          className="w-full h-full object-cover"
+        />
+      )}
+    </div>
+  );
+};
+
+const ScrollableVideoRow = ({ videoIds }) => {
+  const scrollContainerRef = useRef(null);
+  const scrollBy = 300;
+
+  const scroll = (direction) => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: direction * scrollBy,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  return (
+    <div className="relative w-full">
+      {/* Scrollable container */}
+      <div className="overflow-x-auto no-scrollbar" ref={scrollContainerRef}>
+        <div className="flex w-max gap-4 px-4 snap-x snap-mandatory scroll-smooth">
+          {videoIds.map((id, idx) => (
+            <VideoThumbnailPlayer key={idx} videoId={id} />
+          ))}
+        </div>
       </div>
-      <button onClick={() => scroll(1)} className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 hover:bg-black/70 text-white rounded-full p-2">
-        <ChevronRight />
+
+      {/* Scroll Left Button */}
+      <button
+        onClick={() => scroll(-1)}
+        className="hidden md:flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-black/60 hover:bg-black/80 text-white rounded-full p-2"
+      >
+        <ChevronLeft size={24} />
+      </button>
+
+      {/* Scroll Right Button */}
+      <button
+        onClick={() => scroll(1)}
+        className="hidden md:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-black/60 hover:bg-black/80 text-white rounded-full p-2"
+      >
+        <ChevronRight size={24} />
       </button>
     </div>
   );
 };
 
+const Section = ({
+  img,
+  alt,
+  para,
+  vertical = false,
+  enlargeImage = false,
+}) => (
+  <div
+    className={`flex ${
+      vertical
+        ? "flex-col items-center text-left"
+        : "flex-col md:flex-row items-center md:items-start text-left"
+    } gap-6 py-12`}
+  >
+    <img
+      src={img}
+      alt={alt}
+      className={`${
+        enlargeImage ? "w-[28vh]" : "w-[28vh]"
+      } aspect-square object-center rounded-full shadow-md`}
+    />
+    <p className="text-base font-normal leading-normal px-4 md:px-0">{para}</p>
+  </div>
+);
+
 const Works = () => {
+  const [works, setWorks] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timer);
+    const fetchWorks = async () => {
+      try {
+        const { data } = await api.get("/works");
+        setWorks(data);
+      } catch (error) {
+        console.error("Failed to fetch works:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchWorks();
   }, []);
 
   if (loading) return <Loader />;
 
   return (
-    <div className="bg-black text-white">
-      <div className="px-4 sm:px-[15%] pt-20 pb-10">
-        <Section
-          img={baharImg}
-          alt="Bahar Dhawan Rohtagi"
-          text="Bahaar Dhawan Rohatgi is a distinguished Indian contemporary artist renowned for her innovative mixed-media creations that seamlessly blend her legal background with her artistic pursuits. Initially practicing law for five years, Bahaar transitioned to art, becoming a self-taught artist whose works are deeply influenced by cosmic themes, dreams, and societal narratives. Her art employs diverse materials such as resin, rubber, cement, and sand, resulting in textured pieces that explore themes like feminism, ecology, and the cosmos. Bahaar's unique approach has garnered international recognition, including the prestigious SAARC Award for Best Emerging Artist in 2017."
-        />
-        <ScrollableVideoRow videoIds={youtubeShortsBahar} />
-      </div>
+    <div>
+      {works.map((w, idx) => {
+        const isOdd = idx % 2 === 1;
+        const bgClass = isOdd
+          ? "bg-yellow-500 text-black"
+          : "bg-black text-white";
 
-      <div className="flex justify-center items-center bg-primary text-black py-12 px-4 sm:px-[15%] border-b border-black/10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 w-full">
-          <div className="md:w-1/3 text-center md:text-left">
-            <img src={studioRiguLogo} alt="Studio Rigu" className="w-[35vh] aspect-square object-center rounded-full shadow-md" />
-            <p className="mt-4 text-base font-normal leading-normal">
-              <strong>Studio Rigu</strong> is a contemporary Indian fashion label founded by Riya Gupta in 2018. Known for its blend of comfort and elegance, the brand focuses on empowering women through bold, modern silhouettes. It combines masculine fabrics with feminine styles and emphasizes sustainability using eco-friendly materials like Cupro and organic cotton. Studio Rigu offers dresses, co-ords, kaftans, and more, featuring vibrant prints and a globally inspired aesthetic.
-            </p>
+        return (
+          <div key={w._id} className={bgClass}>
+            <div className="px-4 sm:px-[15%] py-10">
+              {isOdd ? (
+                // Yellow layout: image left, videos right — swap order on mobile
+                <div className="flex flex-col md:flex-row-reverse items-center justify-center gap-10 max-w-screen-xl mx-auto overflow-hidden">
+                  <div className="w-full md:w-1/3 order-1 md:order-2">
+                    <Section
+                      img={`${window.location.origin}${w.image}`}
+                      alt={w.name}
+                      para={w.para}
+                      vertical={true}
+                    />
+                  </div>
+                  <div className="w-full md:w-2/3 order-2 md:order-1">
+                    <ScrollableVideoRow videoIds={w.links} />
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <Section
+                    img={`${window.location.origin}${w.image}`}
+                    alt={w.name}
+                    para={w.para}
+                    vertical={false}
+                    enlargeImage={true}
+                  />
+                  <ScrollableVideoRow videoIds={w.links} />
+                </>
+              )}
+            </div>
           </div>
-          <div className="w-full md:w-2/3">
-            <ScrollableVideoRow videoIds={youtubeShortsStudioRigu} />
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 sm:px-[15%] pt-20 pb-10">
-        <Section
-          img={vrindaImg}
-          alt="Vrinda Suri"
-          text="Vrinda Suri is a fashion-forward creative whose content sits at the intersection of elegance and storytelling. With roots in design from NIFT and a signature aesthetic that blends muted tones, natural light, and cinematic frames, she curates fashion moments that feel both intimate and editorial. Her collaborations with brands like Manish Malhotra x Samsonite and Charles & Keith reflect a style that is refined, slow, and quietly luxurious — always more story than scroll."
-        />
-        <ScrollableVideoRow videoIds={youtubeShortsVrinda} />
-      </div>
-
-      <div className="px-4 sm:px-[15%] pt-20 pb-10">
-        <Section
-          img={rheaImg}
-          alt="Rhea Kapahi"
-          text="Rhea Kapahi is a fashion-forward creative whose content sits at the intersection of elegance and storytelling. With roots in design from LASALLE College of the Arts and a signature aesthetic that blends muted tones, natural light, and cinematic frames, she curates fashion moments that feel both intimate and editorial. Her collaborations with brands like Tarun Tahiliani x Tasva and Charles & Keith reflect a style that is refined, slow, and quietly luxurious — always more story than scroll."
-          reverse
-        />
-        <ScrollableVideoRow videoIds={youtubeShortsRhea} />
-      </div>
-
-      <div className="flex justify-center items-center bg-primary text-black py-12 px-4 sm:px-[15%]">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 w-full">
-          <div className="md:w-1/3 text-center md:text-left">
-            <img src={nonames} alt="No Names" className="w-[35vh] aspect-square object-cover rounded-full shadow-md" />
-            <p className="mt-4 text-base font-normal leading-normal">
-              <strong>No Names</strong> is an exclusive dating app designed for discerning individuals seeking authentic, meaningful connections. With robust ID verification, privacy-first features, and a dedicated panic button, it ensures safety and trust at every step. By fostering genuine real-world meetups and enforcing strict community standards, No Names redefines modern dating with elegance and integrity.
-            </p>
-          </div>
-          <div className="w-full md:w-2/3">
-            <ScrollableVideoRow videoIds={youtubeShortsNoNames} />
-          </div>
-        </div>
-      </div>
+        );
+      })}
     </div>
   );
 };
