@@ -2,8 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import api from "../api/axios";
 import Loader from "../components/Loader";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-// Utility to detect touch devices
 const isTouchDevice = () =>
   typeof window !== "undefined" &&
   ("ontouchstart" in window || navigator.maxTouchPoints > 0);
@@ -14,10 +12,7 @@ const VideoThumbnailPlayer = ({ videoId }) => {
   const [isTouch, setIsTouch] = useState(false);
 
   useEffect(() => {
-    setIsTouch(
-      typeof window !== "undefined" &&
-        ("ontouchstart" in window || navigator.maxTouchPoints > 0)
-    );
+    setIsTouch(isTouchDevice());
   }, []);
 
   const handleMouseEnter = () => {
@@ -29,7 +24,19 @@ const VideoThumbnailPlayer = ({ videoId }) => {
   };
 
   const handleClick = () => {
-    if (isTouch) setIsHovered((prev) => !prev); // 👈 Tap to toggle on mobile
+    if (isTouch) {
+      setIsHovered((prev) => !prev); // Toggle video on tap for mobile
+    } else if (iframeRef.current && isHovered) {
+      // Attempt to unmute on desktop
+      iframeRef.current.contentWindow.postMessage(
+        JSON.stringify({
+          event: "command",
+          func: "unMute",
+          args: [],
+        }),
+        "*"
+      );
+    }
   };
 
   return (
@@ -37,13 +44,13 @@ const VideoThumbnailPlayer = ({ videoId }) => {
       className="w-[22vh] sm:w-[24vh] md:w-[26vh] lg:w-[28vh] max-w-[260px] aspect-[9/16] bg-black rounded-xl shadow-lg snap-start overflow-hidden relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleClick} // 👈 Only this added
+      onClick={handleClick}
     >
       {isHovered ? (
         <iframe
           ref={iframeRef}
           className="w-full h-full"
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&loop=1&playlist=${videoId}`}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1&controls=0&modestbranding=1&playsinline=1&rel=0&loop=1&playlist=${videoId}`}
           frameBorder="0"
           allow="autoplay; encrypted-media"
           allowFullScreen
@@ -59,6 +66,7 @@ const VideoThumbnailPlayer = ({ videoId }) => {
     </div>
   );
 };
+
 
 const ScrollableVideoRow = ({ videoIds }) => {
   const scrollContainerRef = useRef(null);
