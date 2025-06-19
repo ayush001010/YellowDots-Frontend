@@ -151,15 +151,15 @@ const Works = () => {
   return (
     <div>
       {works.map((w, idx) => {
-        const isOdd = idx % 2 === 1;
-        const bgClass = isOdd
+        const isYellow = (idx + 1) % 3 === 0;
+        const bgClass = isYellow
           ? "bg-yellow-500 text-black"
           : "bg-black text-white";
 
         return (
           <div key={w._id} className={bgClass}>
             <div className="px-4 sm:px-[15%] py-10">
-              {isOdd ? (
+              {isYellow ? (
                 // Yellow layout: image left, videos right — swap order on mobile
                 <div className="flex flex-col md:flex-row-reverse items-center justify-center gap-10 max-w-screen-xl mx-auto overflow-hidden">
                   <div className="w-full md:w-1/3 order-1 md:order-2">
